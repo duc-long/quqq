@@ -1,0 +1,79 @@
+/* Mobile View (Default) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+
+figure {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Tablet View */
+@media all and (min-width: 772px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure:last-child {
+        grid-column: span 2;
+    }
+
+    figure img {
+        border-radius: 50%;
+    }
+}
+
+/* Large Screen View */
+@media all and (min-width: 992px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    figure img {
+        border-radius: 0;
+    }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #fff;
+    }
+
+    figure {
+        background-color: #444;
+        color: #ffcc00;
+        border-color: black;
+    }
+}
